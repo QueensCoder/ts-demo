@@ -1,16 +1,19 @@
 import React from "react";
 
 interface TodoListItemProps {
-  todo: string;
-  isCompleted: boolean;
+  todo: {
+    text: string;
+    isComp: boolean;
+  };
 }
 
-const TodoListItem: React.FC<TodoListItemProps> = ({ todo, isCompleted }) => {
+const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
+  const { text, isComp } = todo;
   return (
     <li>
       <label>
-        <input type="checkbox" checked={isCompleted} />
-        {todo}
+        <input type="checkbox" checked={isComp} />
+        {text}
       </label>
     </li>
   );
