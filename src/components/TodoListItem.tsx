@@ -2,14 +2,19 @@ import React from "react";
 
 interface TodoListItemProps {
   todo: Todo;
+  toggleTodo: ToggleTodo;
 }
 
-const TodoListItem: React.FC<TodoListItemProps> = ({ todo }) => {
+const TodoListItem: React.FC<TodoListItemProps> = ({ todo, toggleTodo }) => {
   const { text, isComp } = todo;
   return (
     <li>
-      <label>
-        <input type="checkbox" checked={isComp} />
+      <label style={{ textDecoration: isComp ? "line-through" : "none" }}>
+        <input
+          type="checkbox"
+          checked={isComp}
+          onChange={() => toggleTodo(todo)}
+        />
         {text}
       </label>
     </li>
