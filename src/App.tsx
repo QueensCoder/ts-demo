@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { uuid } from "uuidv4";
 
-import { TodoList } from "./components";
+import { TodoList, AddTodoForm } from "./components";
 
 const initialTodos: Array<Todo> = [
   { id: uuid(), text: "walk doggy", isComp: false },
@@ -17,9 +17,15 @@ const App: React.FC = () => {
     });
     setTodos(newTodos);
   };
+
+  const addTodo = (newTodo: string) => {
+    setTodos([...todos, { text: newTodo, isComp: false, id: uuid() }]);
+  };
+
   return (
     <>
       <TodoList todos={todos} toggleTodo={toggleTodo} />
+      <AddTodoForm addTodo={addTodo} />
     </>
   );
 };

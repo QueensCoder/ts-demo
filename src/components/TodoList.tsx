@@ -1,5 +1,5 @@
 import React from "react";
-import { TodoListItem } from "./";
+import { TodoListItem } from ".";
 
 interface TodoListProps {
   todos: Array<Todo>;
