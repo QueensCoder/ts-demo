@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { uuid } from "uuidv4";
 
-import { List, TodoListItem } from "./components";
+import { TodoList } from "./components";
 
 const initialTodos: Array<Todo> = [
   { id: uuid(), text: "walk doggy", isComp: false },
@@ -19,10 +19,7 @@ const App: React.FC = () => {
   };
   return (
     <>
-      <List name="oz" age={1} person={{ name: "oz", age: "12" }} />
-      {todos.map(item => (
-        <TodoListItem key={item.id} todo={item} toggleTodo={toggleTodo} />
-      ))}
+      <TodoList todos={todos} toggleTodo={toggleTodo} />
     </>
   );
 };

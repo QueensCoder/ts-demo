@@ -1,28 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import { TodoListItem } from "./";
 
-interface Person {
-  name: string;
-  age: string;
+interface TodoListProps {
+  todos: Array<Todo>;
+  toggleTodo: ToggleTodo;
 }
 
-interface ListProps {
-  name: string;
-  age: number;
-  person: Person; //   can set type of object using another interface
-  ok?: boolean; //? makes prop optional
-}
-
-const List: React.FC<ListProps> = ({ age, person, name }) => {
+const TodoList: React.FC<TodoListProps> = ({ todos, toggleTodo }) => {
   return (
-    <div>
-      <div>
-        hello {name} you are {age} years old
-        <br />
-        hello {person.name} {person.age}
-      </div>
-      <br />
-    </div>
+    <ul>
+      {todos.map(item => (
+        <TodoListItem key={item.id} todo={item} toggleTodo={toggleTodo} />
+      ))}
+    </ul>
   );
 };
 
-export default List;
+export default TodoList;
