@@ -2,12 +2,7 @@ import React from "react";
 import { uuid } from "uuidv4";
 
 import { List, TodoListItem } from "./components";
-
-type Todo = {
-  text: string;
-  isComp: boolean;
-  id: string;
-};
+import { Todo } from "./types/types";
 
 const todos: Array<Todo> = [
   { id: uuid(), text: "walk doggy", isComp: false },
