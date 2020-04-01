@@ -1,12 +1,12 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
-import { List } from "./components";
+
+import { List, TodoListItem } from "./components";
 
 const App: React.FC = () => {
   return (
     <div>
-      <List name="oz" age={1} />
+      <List name="oz" age={1} person={{ name: "oz", age: "12" }} />
+      <TodoListItem todo={"x"} isCompleted={false} />
     </div>
   );
 };
